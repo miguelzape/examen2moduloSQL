@@ -1,5 +1,6 @@
 package daos;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -16,10 +17,6 @@ public class UserDao {
 
 	public UserDao() {
 		em = JpaUtil.getEM("ejemploHibernateOracle");
-	}
-	
-	public UserDao(EntityManager entimana) {
-		em = entimana;
 	}
 	
 	public void close() {
@@ -75,6 +72,23 @@ public class UserDao {
 		 try {
 			 em.persist(user);
 			 
+			 em.getTransaction().commit();
+		 }catch(Exception e) {
+			 em.getTransaction().rollback();
+		 }
+	     
+	}
+	
+	public void insertarUsuario (List<UserEntity> users) {
+		 em.getTransaction().begin();
+		 
+//	     List<String> caca = new ArrayList<String>();
+//		 caca.stream().forEach(System.out::println);
+		 
+		 try {
+			 for (UserEntity userEntity : users) {
+				 em.persist(userEntity);
+			 }
 			 em.getTransaction().commit();
 		 }catch(Exception e) {
 			 em.getTransaction().rollback();
