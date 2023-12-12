@@ -21,4 +21,9 @@ public class JpaUtil {
     	
     	return em;
     }
+    
+    
+    public static EntityManager getEM () {
+    	return getEM ("ejemploHibernateOracle");
+    }
 }
