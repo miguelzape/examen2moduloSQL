@@ -18,12 +18,12 @@ public class JpaUtil {
     public static EntityManager getEM (String persistenceUnit) {
     	EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceUnit);
     	EntityManager em = emf.createEntityManager(); 
-    	
+    	 
     	return em;
     }
     
     
     public static EntityManager getEM () {
-    	return getEM ("ejemploHibernateOracle");
+    	return getEM ("HibernateOracle");
     }
 }

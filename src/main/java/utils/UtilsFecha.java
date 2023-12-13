@@ -45,7 +45,7 @@ public class UtilsFecha {
 		return c.getTime();
 	}
 	
-	public Date crearDate(int year,int month, int day) { 
+	public static Date crearDate(int year,int month, int day) { 
 		
 		Calendar calendario = Calendar.getInstance();
 
@@ -53,6 +53,6 @@ public class UtilsFecha {
         calendario.set(Calendar.YEAR, year - 1900);
         calendario.set(Calendar.MONTH, month - 1 );  
         calendario.set(Calendar.DAY_OF_MONTH, day);
-		return calendario.getTime();
+		return calendario.getTime(); 
 	}
 }
